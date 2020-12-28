@@ -1,12 +1,13 @@
-﻿using System.Linq;
+﻿using Admin.Data;
+using System.Linq;
 
 namespace Admin.Models
 {
     public class EFStoreRepository : IStoreRepository
     {
-        private StoreDbContext context;
+        private AdminContext context;
 
-        public EFStoreRepository(StoreDbContext ctx)
+        public EFStoreRepository(AdminContext ctx)
         {
             context = ctx;
         }

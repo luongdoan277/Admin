@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Admin.Data;
 
 namespace Admin.Models
 {
@@ -9,8 +10,8 @@ namespace Admin.Models
     {
         public static void EnsurePopulated(IApplicationBuilder app)
         {
-            StoreDbContext context = app.ApplicationServices
-                .CreateScope().ServiceProvider.GetRequiredService<StoreDbContext>();
+            AdminContext context = app.ApplicationServices
+                .CreateScope().ServiceProvider.GetRequiredService<AdminContext>();
 
             if (context.Database.GetPendingMigrations().Any())
             {
