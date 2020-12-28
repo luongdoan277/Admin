@@ -1,6 +1,10 @@
+using Admin.Areas.Identity.Data;
+using Admin.Data;
+using Admin.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,15 +30,15 @@ namespace Admin
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
-            services.AddDbContext<StoreDbContext>(
-             opts =>
-             {
-                 opts.UseSqlServer
-                 (Configuration["ConnectionStrings:KitchenAppliances"]);
-             }
-             );
+            //services.AddDefaultIdentity<AdminUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<AdminContext>();
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = Configuration["Google:ClientId"];
+                    options.ClientSecret = Configuration["Google:ClientSecret"];
+                });
             services.AddScoped<IStoreRepository, EFStoreRepository>();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,16 +60,18 @@ namespace Admin
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Dashboard}/{action=Index}/{id?}");
-
                 endpoints.MapControllerRoute(
                     name: "Products",
                     pattern: "{controller=Products}/{action=Index}");
+                endpoints.MapRazorPages();
+              
             });
         }
     }
