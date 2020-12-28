@@ -6,14 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Admin.Models;
+using Admin.Data;
 
 namespace Admin.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly StoreDbContext _context;
+        private readonly AdminContext _context;
 
-        public ProductsController(StoreDbContext context)
+        public ProductsController(AdminContext context)
         {
             _context = context;
         }
