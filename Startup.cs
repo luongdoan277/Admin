@@ -1,7 +1,10 @@
+using Admin.Areas.Identity.Data;
+using Admin.Data;
 using Admin.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,6 +28,7 @@ namespace Admin
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.AddDefaultIdentity<AdminUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<AdminContext>();
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {

@@ -1,4 +1,5 @@
-﻿using Admin.Models;
+﻿using Admin.Data;
+using Admin.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -12,27 +13,22 @@ namespace Admin.Controllers
 {
     public class DashboardController : Controller
     {
-        private readonly ILogger<DashboardController> _logger;
+        public List<Order> orders;
+        private AdminContext adminContext;
 
-        public DashboardController(ILogger<DashboardController> logger)
+        public DashboardController(AdminContext _adminContext)
         {
-            _logger = logger;
+            adminContext = _adminContext;
         }
+        //public JsonResult result()
+        //{
+        //    DateTime now = DateTime.Today;
+
+        //}
         [Authorize]
         public IActionResult Index()
         {
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
