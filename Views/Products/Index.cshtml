@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Admin.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<div class="container-fuild">
+    <div class="page-title">
+        <div class="title__dashboard">
+            <p>Product</p>
+        </div>
+        <div class="title__dashboardchild">
+            <a href="#">Ecommerce</a>
+            <span>/</span>
+            <p>Product</p>
+        </div>
+    </div>
+    <div class="product-content">
+        <div class="filter">
+            <div class="title-filter">
+                <p>Filter</p>
+            </div>
+            <div>
+                <h5 style="
+                        font-size: 14px;
+                        color: #495057;
+                        margin-bottom: 1rem;
+                        font-weight: bold;
+                      ">
+                    Clothes
+                </h5>
+                <ul class="product-list">
+                    <li>
+                        <a href=""><i class="fas fa-chevron-right"></i> T-Shirt</a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fas fa-chevron-right"></i> Shirt</a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fas fa-chevron-right"></i> Jeans</a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fas fa-chevron-right"></i> Jacket</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clothes">
+            <div class="head-clothes">
+                <div class="title-clothes">
+                    <p>Clothes</p>
+                </div>
+                <div class="style-clothes">
+                    <form action="" class="form-search__clothes">
+                        <input type="text" placeholder="Search..." />
+                        <span><i class="fas fa-search"></i></span>
+                    </form>
+                </div>
+            </div>
+            <div class="clothes__content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProductID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProductName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Categories.CategoryName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Price)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            <th>
+                                Method
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProductID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProductName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Categories.CategoryName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </td>
+                                <td>
+                                    <span>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </span>
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.ProductID" class="size">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.ProductID" class="size">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.ProductID" class="size">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @*<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
+                 page-class="btn" page-class-normal="btn-outline-dark"
+                 page-class-selected="btn-primary" class="btn-group pull-right mt-3"></div>*@
+        </div>
+    </div>
+</div>
+

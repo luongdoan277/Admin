@@ -20,7 +20,7 @@
                 <!-- Logo -->
                 <div class="logo">
                     <a href="#">
-                        <img src="~/image/logo-light.png" alt="logo" />
+                        <img src="~/images/logo-light.png" alt="logo" />
                     </a>
                 </div>
                 <!-- Menu-hamburger -->
@@ -42,7 +42,7 @@
                 </button>
                 <!-- user -->
                 <button class="user">
-                    <img src="~/image/avatar-1.jpg" alt="" />
+                    <img src="~/images/avatar-1.jpg" alt="" />
                     <span>Kin</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
@@ -135,7 +135,9 @@
                 </div>
             </div>
             <div class="main-content">
-                @RenderBody()
+                <div class="page-content">
+                    @RenderBody()
+                </div>
             </div>
         </div>
     </main>
@@ -173,5 +175,6 @@
             options: {},
         });
     </script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

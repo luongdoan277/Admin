@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Admin.Models;
 
 namespace Admin
 {
@@ -24,6 +26,15 @@ namespace Admin
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<StoreDbContext>(
+             opts =>
+             {
+                 opts.UseSqlServer
+                 (Configuration["ConnectionStrings:KitchenAppliances"]);
+             }
+             );
+            services.AddScoped<IStoreRepository, EFStoreRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +62,10 @@ namespace Admin
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "Products",
+                    pattern: "{controller=Products}/{action=Index}");
             });
         }
     }
