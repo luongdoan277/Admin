@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 
-
 namespace Admin.Models
 {
     public class EFStoreRepository : IStoreRepository

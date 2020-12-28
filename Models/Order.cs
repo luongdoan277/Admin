@@ -8,7 +8,6 @@ namespace Admin.Models
 {
     public class Order
     {
-
         public int OrderID { get; set; }
         public string OrderOPP { get; set; }
         public int CustomerID { get; set; }
@@ -16,7 +15,6 @@ namespace Admin.Models
         public int ShipMethod { get; set; }
         public int PaymentMethod { get; set; }
         public bool PaymentStatus { get; set; }
-
         [Column(TypeName = "decimal(8,2)")]
         public double TotalPrice { get; set; }
         public bool OrderStatus { get; set; }
