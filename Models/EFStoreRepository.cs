@@ -15,6 +15,7 @@ namespace Admin.Models
         public IQueryable<Category> Categories => context.Categories;
         public IQueryable<Media> Medias => context.Medias;
         public IQueryable<Customer> Customers => context.Customers;
+        public IQueryable<Order> Orders => context.Orders;
 
     }
 }

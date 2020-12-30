@@ -11,5 +11,6 @@ namespace Admin.Models
         IQueryable<Media> Medias { get; }
         IQueryable<Category> Categories { get; }
         IQueryable<Customer> Customers { get; }
+        IQueryable<Order> Orders { get; }
     }
 }
