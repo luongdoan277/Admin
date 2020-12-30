@@ -20,7 +20,7 @@ namespace Admin.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("KitchenAppliances")));
 
-                services.AddDefaultIdentity<AdminUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<AdminUser>(options => options.SignIn.RequireConfirmedAccount = false)
                     .AddEntityFrameworkStores<AdminContext>();
             });
         }
