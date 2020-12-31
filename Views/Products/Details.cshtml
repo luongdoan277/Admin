@@ -4,7 +4,128 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="container-fuild">
+    <div class="page-title">
+        <div class="title__dashboard">
+            <p>Product Details</p>
+        </div>
+        <div class="title__dashboardchild">
+            <a href="#">Ecommerce</a>
+            <span>/</span>
+            <p>Product Details</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="product-detai-imgs">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-3 col-4">
+                            <ul class="image-preview-admin">
+                                <li>
+                                    <a href="#" class="nav-link active-img">
+                                        <img src="/images/img-1.png"
+                                             alt=""
+                                             class="img-fuild" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link">
+                                        <img src="~/images/img-2.png"
+                                             alt=""
+                                             class="img-fuild" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link">
+                                        <img src="~/images/img-3.png"
+                                             alt=""
+                                             class="img-fuild" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link">
+                                        <img src="~/images/img-4.png"
+                                             class="img-fuild" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-7 offset-md-1 col-sm-9 col-8">
+                            <div class="tab-content">
+                                <img src="~/images/img-1.png" alt="" class="img-gallery">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="mt-4 mt-xl-3">
+                    <a href="#" class="text-primary">@Html.DisplayFor(model => model.Categories.CategoryName)</a>
+                    <h4 class="mt-1 mb-3" style="font-size: 19px; font-weight: bold;">@Html.DisplayFor(model => model.ProductName)</h4>
+                    <p class="text-muted float-left mr-3">
+                        <span class="bx bx-star text-warning"></span>
+                        <span class="bx bx-star text-warning"></span>
+                        <span class="bx bx-star text-warning"></span>
+                        <span class="bx bx-star text-warning"></span>
+                        <span class="bx bx-star"></span>
+                    </p>
+                    <p class="text-muted mb-4">( 152 Customers Review )</p>
+                    <h6 class="text-success text-uppercase">20 % Off</h6>
+                    <h5 class="mb-4" style="font-size: 17px; font-weight: bold;">@Html.DisplayNameFor(model => model.Price) : <span class="text-muted mr-2"><del>$240 USD</del></span> <b>@Html.DisplayFor(model => model.Price)</b></h5>
+                    <p class="text-muted mb-4">@Html.DisplayFor(model => model.Description)</p>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div>
+                                <p class="text-muted"><i class="fab fa-500px text-primary"></i> Wireless</p>
+                                <p class="text-muted"><i class="fas fa-air-freshener text-primary"></i> Wireless Range : 10m</p>
+                                <p class="text-muted"><i class="fab fa-airbnb text-primary"></i> Battery life : 6hrs</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <p class="text-muted"><i class="fab fa-500px text-primary"></i> Wireless</p>
+                                <p class="text-muted"><i class="fas fa-air-freshener text-primary"></i> Wireless Range : 10m</p>
+                                <p class="text-muted"><i class="fab fa-airbnb text-primary"></i> Battery life : 6hrs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5">
+            <h5 class="mb-3">Specifications :</h5>
+            <div class="table-responsive">
+                <table class="table mb-0 table-bordered">
+                    <tbody>
+                        <tr>
+                            <th scope="row" style="width: 400px; font-size: 15px;">@Html.DisplayNameFor(model => model.Categories)</th>
+                            <td>@Html.DisplayFor(model => model.Categories.CategoryName)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width: 400px; font-size: 15px;">Brand</th>
+                            <td>JBL</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width: 400px; font-size: 15px;">Color</th>
+                            <td>Black</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width: 400px; font-size: 15px;">Connectivity</th>
+                            <td>Bluetooth</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="width: 400px;font-size: 15px;">Warranty Summary</th>
+                            <td>1 Year</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h1>Details</h1>
 
 <div>
     <h4>Product</h4>
@@ -47,8 +168,14 @@
             @Html.DisplayFor(model => model.Categories.CategoryID)
         </div>
     </div>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ProductID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+</div>*@
+
+<div style="padding: 12px;margin: 60px 0">
+    <a asp-action="Edit" asp-route-id="@Model.ProductID"  style="margin-right: 10px;
+        padding: 12px;
+        text-decoration: none;
+        background: #575d70;
+        border-radius: .25rem;
+        color: #fff;">Edit</a>
+    <a asp-action="Index" class="create-product">Back to List</a>
 </div>

@@ -63,7 +63,6 @@ namespace Admin
                 endpoints.MapRazorPages();
               
             });
-            SeedData.EnsurePopulated(app);
         }
     }
 }
