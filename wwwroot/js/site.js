@@ -1,4 +1,13 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+const imgFuild = document.querySelectorAll('.img-fuild');
+const imgGallery = document.querySelector('.img-gallery');
+const navLink = document.querySelectorAll('.nav-link');
 
-// Write your JavaScript code.
+
+navLink.forEach((link, index) => {
+    link.addEventListener('click', function () {
+        navLink.forEach(link => { link.classList.remove('active-img') });
+        link.classList.add('active-img');
+        imgGallery.src = imgFuild[index].src;
+    });
+})

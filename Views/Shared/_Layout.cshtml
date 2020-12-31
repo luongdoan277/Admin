@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -117,6 +117,20 @@
     <script src="https://code.jquery.com/jquery-3.x-git.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        const imgFuild = document.querySelectorAll('.img-fuild');
+        const imgGallery = document.querySelector('.img-gallery');
+        const navLink = document.querySelectorAll('.nav-link');
+
+
+        navLink.forEach((link, index) => {
+            link.addEventListener('click', function () {
+                navLink.forEach(link => { link.classList.remove('active-img') });
+                link.classList.add('active-img');
+                imgGallery.src = imgFuild[index].src;
+            });
+        })
+    </script>
     <vc:chart-dashboard />
     @RenderSection("Scripts", required: false)
 </body>
